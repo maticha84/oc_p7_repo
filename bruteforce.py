@@ -1,8 +1,7 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-from itertools import combinations
-
+import itertools
 
 max_value_invest = 500
 dict_action = {
@@ -34,16 +33,74 @@ def calcul_benefice_euros(dict_action):
         dict_action[action]['euros'] = round(dict_action[action]['cout'] * dict_action[action]['benefice'], 2)
 
 
-def sorted_by_percent(dict_actions):
-    sorted_dict_actions = sorted(dict_actions.items(), key=lambda x: x[1]['benefice'], reverse=True)
-    print(sorted_dict_actions)
-    return sorted_dict_actions
+def search_all_possible_combinations(dict_action, max_value_invest=500):
+    action_cout_euros = []
+    for action in dict_action:
+        action_cout_euros.append((action, dict_action[action]['cout'], dict_action[action]['euros']))
 
+    all_combinations = []
+    for L in range(0, len(action_cout_euros) + 1):
+        for subset in itertools.combinations(action_cout_euros, L):
+            all_combinations.append(subset)
+
+    possible_combinations_with_constraints = []
+    none_possible = []
+    for combination in all_combinations:
+        nb_items = len(combination)
+        if nb_items >= 1:
+            calcul_invest = 0
+            calcul_benef = 0
+            list_actions = []
+            for i in range(0, nb_items):
+                calcul_invest += round(combination[i][1], 2)
+                calcul_benef += round(combination[i][2], 2)
+                list_actions.append(combination[i][0])
+            if max_value_invest - calcul_invest >= 0:
+                rendement = round(calcul_benef / calcul_invest * 100, 2)
+                possible_combinations_with_constraints.append(
+                    (list_actions, round(calcul_benef, 2), round(calcul_invest, 2), rendement)
+                )
+            else:
+                none_possible.append(list_actions)
+    return possible_combinations_with_constraints
+
+
+def tri_par_invest_rendement(x):
+    return [-x[2], -x[3]]
+
+
+def tri_par_rendement_invest(x):
+    return [-x[3], -x[2]]
+
+
+def tri_benefice_rendement(x):
+    return [-x[1], -x[3]]
 
 
 if __name__ == '__main__':
     calcul_benefice_euros(dict_action)
+    all_possibilities = search_all_possible_combinations(dict_action)
+    print("Vous avez la possibilité de voir les 10 meilleures combinaisons d'actions possibles :\n"
+          "1 - du plus gros bénéfice au plus petit bénéfice\n"
+          "2 - du plus gros au plus petit rendement\n"
+          "3 - de la plus grosse à la plus petite somme investie\n")
+    choix = False
+    while not choix:
+        response = input("Votre choix : ")
+        if response == '1':
+            all_possibilities = sorted(all_possibilities, key=tri_benefice_rendement)
+        elif response == '2':
+            all_possibilities = sorted(all_possibilities, key=tri_par_rendement_invest)
+        elif response == '3':
+            all_possibilities = sorted(all_possibilities, key=tri_par_invest_rendement)
+        if response == '1' or response == '2' or response == '3':
+            for i in range(0, 10):
+                print(f"liste des actions où investir : {all_possibilities[i][0]}  \n"
+                      f"Bénéfice net sur 2 ans : {all_possibilities[i][1]}€ \n"
+                      f"Investissement de départ : {all_possibilities[i][2]}€ \n"
+                      f"Rendement des actions : {all_possibilities[i][3]}% \n"
+                      f"----------------------------------------------------\n")
 
-    list_actions = sorted_by_percent(dict_action)
-
-
+            stop_execution = input("On continue ? (O/n)")
+            if stop_execution.upper() == 'N':
+                choix = True
