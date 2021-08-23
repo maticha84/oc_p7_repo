@@ -17,8 +17,9 @@ def recuperation_information(csv_import):
     dict_action = {}
     with open(csv_import, 'r') as csv_file:
         reader = csv.DictReader(csv_file)
-        for row in reader:
-            dict_action[row['name']] = {'price': int(row['price']), 'profit': int(row['profit'])}
+
+        for row in tqdm(reader):
+            dict_action[row['name']] = {'price': float(row['price']), 'profit': float(row['profit'])}
 
     return dict_action
 
@@ -29,7 +30,7 @@ def calculate_profit_euros(dict_action):
     :param dict_action: dictionary containing all the stocks to be processed
     :return: add a key/value in the dictionnary : profit over 2 years
     """
-    for action in dict_action:
+    for action in tqdm(dict_action):
         dict_action[action]['euros'] = round(dict_action[action]['price'] * dict_action[action]['profit'] / 100, 2)
 
 
@@ -122,12 +123,12 @@ def brut_force_actions(csv_file):
         elif response == '3':
             all_possibilities = sorted(all_possibilities, key=sort_by_invest_performance)
         if response == '1' or response == '2' or response == '3':
-            for i in range(0, 10):
-                print(f"List of stocks to invest in : {all_possibilities[i][0]}  \n"
-                      f"Net profit over 2 years : {all_possibilities[i][1]}€ \n"
-                      f"Initial investment : {all_possibilities[i][2]}€ \n"
-                      f"Stock returns : {all_possibilities[i][3]}% \n"
-                      f"----------------------------------------------------\n")
+
+            print(f"List of stocks to invest in : {all_possibilities[0][0]}  \n"
+                  f"Net profit over 2 years : {all_possibilities[0][1]}€ \n"
+                  f"Initial investment : {all_possibilities[0][2]}€ \n"
+                  f"Stock returns : {all_possibilities[0][3]}% \n"
+                  f"----------------------------------------------------\n")
 
             stop_execution = input("Would you like to continue? (Y/n)")
 

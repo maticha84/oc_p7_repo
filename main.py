@@ -3,4 +3,4 @@
 
 from bruteforce import brut_force_actions
 
-brut_force_actions('data_20_actions.csv')
+brut_force_actions('dataset2.csv')
