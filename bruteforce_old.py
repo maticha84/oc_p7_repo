@@ -140,18 +140,3 @@ def brut_force_actions(csv_file):
 
 if __name__ == '__main__':
     brut_force_actions('data_20_actions.csv')
-
-
-
-    """
-    print(f"Maximum profit in euros : {str(result[0])} euros\n"
-          f"Best choice to invest : \n")
-
-    print(len(result[1]))
-    for i in range(0, len(result[1])):
-        print(f"{result[1][0][i]} -- price : {result[1][1][i]} € -- profit : {result[1][1][i]} €")
-    print(f"total invest = {result[2]} € \n")
-    final_time = time() - time1
-
-    print(f"Execution time : {final_time}")
-"""
