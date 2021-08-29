@@ -18,7 +18,7 @@ def recuperation_information(csv_import):
         reader = csv.DictReader(csv_file)
 
         for row in reader:
-            profit_euros = round(float(row['profit'])*float(row['price'])/100, 2)
+            profit_euros = float(row['profit']) * float(row['price']) / 100
             list_actions.append((row['name'], float(row['price']), profit_euros))
 
     return list_actions
@@ -30,37 +30,47 @@ def bruteforce(list_actions, max_value=MAX_VALUE_INVEST, actions_selection=[]):
     :param list_actions: a list
     :param max_value:by default, MAX_VALUE_INVEST
     :param actions_selection: for return a list of actions whose respect constraints
-    :return: the list of best invest actions
+    :return: sum([i[2] for i in actions_selection]) : the maximum invest
+             actions_selection : the list of best invest actions
     """
 
     if list_actions:
-        action1, list_action1 = bruteforce(list_actions[1:], max_value, actions_selection)
+        profit_action1, list_action1 = bruteforce(list_actions[1:],
+                                                  max_value,
+                                                  actions_selection
+                                                  )
         action = list_actions[0]
-
         if action[1] <= max_value:
-            action2, list_action2 = bruteforce(list_actions[1:], max_value - action[1], actions_selection + [action])
-            if action1 < action2:
-                return action2, list_action2
+            profit_action2, list_action2 = bruteforce(list_actions[1:],
+                                                      max_value - action[1],
+                                                      actions_selection + [action]
+                                                      )
+            if profit_action1 < profit_action2:
+                return profit_action2, list_action2
 
-        return action1, list_action1
+        return profit_action1, list_action1
     else:
-        return round(sum([i[2] for i in actions_selection]),2), actions_selection
+        return sum([i[2] for i in actions_selection]), actions_selection
+
+
+def run_bruteforce(csv_file):
+    time1 = time()
+
+    list_actions = recuperation_information(csv_file)
+
+    result = bruteforce(list_actions)
+
+    print(f"\nBest choice to invest : \n")
+    for i in range(0, len(result[1])):
+        print(f"{result[1][i][0]:<10} -- price : {result[1][i][1]:>6.2f} € -- profit : {result[1][i][2]:>6.2f} € ")
+    total_invest = round(sum(i[1] for i in result[1]))
+    print(f"\nTotal invest = {total_invest:>6.2f} € \n"
+          f"Maximum profit in euros : {result[0]:>6.2f} euros\n")
+
+    final_time = time() - time1
+    print(f"Execution time : {final_time} seconds\n")
 
 
 if __name__ == "__main__":
 
-    time1 = time()
-
-    list_actions = recuperation_information('data_20_actions.csv')
-
-    result = bruteforce(list_actions)
-
-    print(f"Maximum profit in euros : {str(result[0])} euros\n\n"
-          f"Best choice to invest : \n")
-    for i in range(0, len(result[1])):
-        print(f"{result[1][i][0]} -- price : {result[1][i][1]} € -- profit : {result[1][i][2]} € ")
-    total_invest = round(sum(i[1] for i in result[1]))
-    print(f"\nTotal invest = {total_invest} € \n")
-
-    final_time = time() - time1
-    print(f"Execution time : {final_time} seconds")
+    run_bruteforce('data_20_actions.csv')
