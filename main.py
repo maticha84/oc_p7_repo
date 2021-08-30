@@ -3,9 +3,9 @@
 """
 Tis is the main menu to test all algorithm to search the best return
 """
-from naive_optimized import run_naive_optimized
-from optimized import run_optimized
-from bruteforce import run_bruteforce
+from algo_package.naive_optimized import run_naive_optimized
+from algo_package.optimized import run_optimized
+from algo_package.bruteforce import run_bruteforce
 from os import path
 
 print("\nWelcome to our algoInvest program.\n")

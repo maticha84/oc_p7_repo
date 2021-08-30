@@ -6,34 +6,14 @@ while maintaining the constraint of a maximum investment value (MAX_VALUE_INVEST
 Optimised version using matrix calculation.
 This is called the dynamic backpack algorithm.
 """
-import csv
+from algo_package.common import recuperation_information
 from time import time
 
 MAX_VALUE_INVEST = 500
 
 
-def recuperation_information(csv_import):
-    """
-    function to retrieve information related to the stock
-    :param csv_import: the file contains list of actions with header : name, price and profit
-    :return: a list contains all actions present in the csv file
-    """
-    list_actions = []
-    with open(csv_import, 'r') as csv_file:
-        reader = csv.DictReader(csv_file)
-
-        for row in reader:
-            profit_euros = float(row['profit']) * float(row['price']) / 100
-            price = float(row['price'])
-            if price > 0 and profit_euros > 0:  # don't take into account losses
-                list_actions.append((row['name'], price, profit_euros))
-    print(len(list_actions))
-    return list_actions
-
-
 def dynamic_search(list_actions, max_value=MAX_VALUE_INVEST):
     """
-
     :param list_actions: a list contains all positives actions
     don't take account into losses
     :param max_value: MAX_VALUE_INVEST - integer type
@@ -72,21 +52,22 @@ def dynamic_search(list_actions, max_value=MAX_VALUE_INVEST):
 
 def run_optimized(csv_file):
     time1 = time()
-    list_action = recuperation_information(csv_file)
 
-    max_profit, action_selection, max_invest = dynamic_search(list_action)
+    list_action, fin = recuperation_information(csv_file)
+    if not fin:
+        max_profit, action_selection, max_invest = dynamic_search(list_action)
 
-    print("\nBest choice to invest : \n")
+        print("\nBest choice to invest : \n")
 
-    for action in action_selection:
-        print(f"{action[0]:<10} -- price : {action[1]:>6.2f} € -- profit : {action[2]:>6.2f} € ")
+        for action in action_selection:
+            print(f"{action[0]:<10} -- price : {action[1]:>6.2f} € -- profit : {action[2]:>6.2f} € ")
 
-    print(f"\nTotal invest = {max_invest:>6.2f} € \n"
-          f"Maximum profit in euros : {max_profit:>6.2f} euros\n\n")
+        print(f"\nTotal invest = {max_invest:>6.2f} € \n"
+              f"Maximum profit in euros : {max_profit:>6.2f} euros\n\n")
 
-    time2 = time() - time1
-    print(f'Execution time : {time2} seconds\n')
+        time2 = time() - time1
+        print(f'Execution time : {time2} seconds\n')
 
 
 if __name__ == '__main__':
-    run_optimized('dataset2.csv')
+    run_optimized('../dataset2.csv')

@@ -139,4 +139,4 @@ def brut_force_actions(csv_file):
 
 
 if __name__ == '__main__':
-    brut_force_actions('data_20_actions.csv')
+    brut_force_actions('../data_20_actions.csv')
