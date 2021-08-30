@@ -6,7 +6,7 @@ while maintaining the constraint of a maximum investment value (MAX_VALUE_INVEST
 Optimised version using matrix calculation.
 This is called the dynamic backpack algorithm.
 """
-from algo_package.common import retrieve_information
+from algo.common import retrieve_information
 from time import time
 
 MAX_VALUE_INVEST = 500
@@ -51,7 +51,7 @@ def dynamic_search(list_actions, max_value=MAX_VALUE_INVEST):
 
 
 def run_optimized(csv_file):
-    time1 = time()
+    start_time = time()
 
     list_action, fin = retrieve_information(csv_file)
     if not fin:
@@ -65,9 +65,9 @@ def run_optimized(csv_file):
         print(f"\nTotal invest = {max_invest:>6.2f} € \n"
               f"Maximum profit in euros : {max_profit:>6.2f} euros\n\n")
 
-        time2 = time() - time1
-        print(f'Execution time : {time2} seconds\n')
+        end_time = time() - start_time
+        print(f'Execution time : {end_time} seconds\n')
 
 
 if __name__ == '__main__':
-    run_optimized('../dataset2.csv')
+    run_optimized('../csv/dataset2.csv')

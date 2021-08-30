@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-from algo_package.common import retrieve_information
+from algo.common import retrieve_information
 from time import time
 
 MAX_VALUE_INVEST = 500
@@ -58,4 +58,4 @@ def run_bruteforce(csv_file):
 
 
 if __name__ == "__main__":
-    run_bruteforce('../dataset1.csv')
+    run_bruteforce('../csv/dataset1.csv')

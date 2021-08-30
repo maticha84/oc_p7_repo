@@ -3,9 +3,9 @@
 """
 Tis is the main menu to test all algorithm to search the best return
 """
-from algo_package.naive_optimized import run_naive_optimized
-from algo_package.optimized import run_optimized
-from algo_package.bruteforce import run_bruteforce
+from algo.naive_optimized import run_naive_optimized
+from algo.optimized import run_optimized
+from algo.bruteforce import run_bruteforce
 from os import path
 
 print("\nWelcome to our algoInvest program.\n")
@@ -30,7 +30,7 @@ while not exit_application:
             print("Your choice must be 1, 2 or 3")
 
     if choice == 1:
-        run_bruteforce('data_20_actions.csv')
+        run_bruteforce('csv/data_20_actions.csv')
 
     elif choice == 2 or choice == 3:
         print("Which file do you want to test ?\n"
@@ -48,11 +48,11 @@ while not exit_application:
                 print("Your choice must be 1, 2, 3 or 4")
 
         if choice2 == 1:
-            csv_file = 'data_20_actions.csv'
+            csv_file = 'csv/data_20_actions.csv'
         if choice2 == 2:
-            csv_file = 'dataset1.csv'
+            csv_file = 'csv/dataset1.csv'
         if choice2 == 3:
-            csv_file = 'dataset2.csv'
+            csv_file = 'csv/dataset2.csv'
         if choice2 == 4:
             csv_file_test = False
             while not csv_file_test:
