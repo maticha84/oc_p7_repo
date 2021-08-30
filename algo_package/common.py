@@ -4,7 +4,7 @@
 from csv import DictReader
 
 
-def recuperation_information(csv_import, bruteforce=False):
+def retrieve_information(csv_import, bruteforce=False):
     """
     function to retrieve information related to the stock
     :param bruteforce: boolean to indicate if bruteforce or not
@@ -12,7 +12,7 @@ def recuperation_information(csv_import, bruteforce=False):
     :return: a list contains all actions present in the csv file
     """
     list_actions = []
-    fin = False
+    end = False
     try:
         with open(csv_import, 'r') as csv_file:
             reader = DictReader(csv_file)
@@ -28,12 +28,12 @@ def recuperation_information(csv_import, bruteforce=False):
         list_actions = sorted(list_actions, key=sort_by_profit)
     except KeyError:
         print(f"The file {csv_import} must be a csv file, with header : 'name, price, profit'\n")
-        fin = True
+        end = True
         list_actions = [0, 0]
     if not list_actions:
         print(f"The file {csv_import} is empty.\n")
-        fin = True
-    return list_actions, fin
+        end = True
+    return list_actions, end
 
 
 def sort_by_profit(x):

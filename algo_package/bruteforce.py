@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-from algo_package.common import recuperation_information
+from algo_package.common import retrieve_information
 from time import time
 
 MAX_VALUE_INVEST = 500
@@ -42,7 +42,7 @@ def bruteforce(list_actions, max_value=MAX_VALUE_INVEST, actions_selection=None)
 def run_bruteforce(csv_file):
     time1 = time()
 
-    list_actions, fin = recuperation_information(csv_file)
+    list_actions, fin = retrieve_information(csv_file)
     if not fin:
         result = bruteforce(list_actions)
 
@@ -58,4 +58,4 @@ def run_bruteforce(csv_file):
 
 
 if __name__ == "__main__":
-    run_bruteforce('../data_20_actions.csv')
+    run_bruteforce('../dataset1.csv')

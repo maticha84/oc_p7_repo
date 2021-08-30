@@ -5,7 +5,7 @@ This optimisation is derived from the so-called "rucksack optimisation".
 The best returns are taken into account and added to the maximum sum of 500€.
 This is the 'naive algorithm'
 """
-from algo_package.common import recuperation_information
+from algo_package.common import retrieve_information
 from time import time
 
 MAX_VALUE_INVEST = 500
@@ -28,7 +28,7 @@ def calc_best_return(list_action):
 def run_naive_optimized(csv_file):
     time1 = time()
 
-    list_actions, fin = recuperation_information(csv_file)
+    list_actions, fin = retrieve_information(csv_file)
     if not fin:
         action_selection, invest, profit = calc_best_return(list_actions)
 
