@@ -1,8 +1,9 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-from algo.common import retrieve_information
+from algo.common import retrieve_information, result_export
 from time import time
+
 
 MAX_VALUE_INVEST = 500
 
@@ -45,17 +46,21 @@ def run_bruteforce(csv_file):
     list_actions, fin = retrieve_information(csv_file)
     if not fin:
         result = bruteforce(list_actions)
-
+        action_selection = result[1]
         print(f"\nBest choice to invest : \n")
-        for i in range(0, len(result[1])):
-            print(f"{result[1][i][0]:<10} -- price : {result[1][i][1]:>6.2f} € -- profit : {result[1][i][2]:>6.2f} € ")
+        for action in action_selection:
+            print(f"{action[0]:<10} -- price : {action[1]:>6.2f} € "
+                  f"-- profit : {action[2]:>6.2f} € ")
         total_invest = round(sum(i[1] for i in result[1]))
+
         print(f"\nTotal invest = {total_invest:>6.2f} € \n"
               f"Maximum profit in euros : {result[0]:>6.2f} euros\n")
+
+        result_export('bruteforce', action_selection, total_invest, result[0])
 
         final_time = time() - time1
         print(f"Execution time : {final_time} seconds\n")
 
 
 if __name__ == "__main__":
-    run_bruteforce('../csv/dataset1.csv')
+    run_bruteforce('../csv/data_20_actions.csv')

@@ -2,7 +2,7 @@
 # coding: utf-8
 
 from csv import DictReader
-
+from os import path, remove
 
 def retrieve_information(csv_import, bruteforce=False):
     """
@@ -43,3 +43,18 @@ def sort_by_profit(x):
     :return: a sorted list of actions
     """
     return [-x[2], -x[1]]
+
+
+def result_export(choice, action_selection, total_invest, total_profit):
+    if path.exists(f'./results/{choice}.txt'):
+        remove(f'./results/{choice}.txt')
+
+    result_for_file = ""
+    for action in action_selection:
+        result_for_file += f"{action[0]:<10} -- price : {action[1]:>6.2f} € -- profit : {action[2]:>6.2f} €\n"
+
+    with open(f'./results/{choice}.txt', 'xt') as result_file:
+        result_file.write(f"\nBest choice to invest : \n\n"
+                          f"{result_for_file}"
+                          f"\nTotal invest = {total_invest:>6.2f} € \n"
+                          f"Maximum profit in euros : {total_profit:>6.2f} euros\n\n")
