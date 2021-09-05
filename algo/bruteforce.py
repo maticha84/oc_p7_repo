@@ -33,15 +33,18 @@ def bruteforce(list_actions, max_value=MAX_VALUE_INVEST, actions_selection=None)
                                                       actions_selection + [action]
                                                       )
             if profit_action1 < profit_action2:
+                print('en cours....2')
                 return profit_action2, list_action2
+        print('en cours....')
         return profit_action1, list_action1
+
     else:
         return sum([i[2] for i in actions_selection]), actions_selection
 
 
 def run_bruteforce(csv_file):
     time1 = time()
-
+    print(time1)
     list_actions, fin = retrieve_information(csv_file)
     if not fin:
         result = bruteforce(list_actions)
@@ -52,8 +55,8 @@ def run_bruteforce(csv_file):
                   f"-- profit : {action[2]:>6.2f} € ")
         total_invest = round(sum(i[1] for i in result[1]))
 
-        print(f"\nTotal invest = {total_invest:>6.2f} € \n"
-              f"Maximum profit in euros : {result[0]:>6.2f} euros\n")
+        print(f"\nTotal cost: {total_invest:>6.2f} € \n"
+              f"Total return: {result[0]:>6.2f} €\n")
 
         result_export('bruteforce', action_selection, total_invest, result[0])
 
@@ -62,4 +65,4 @@ def run_bruteforce(csv_file):
 
 
 if __name__ == "__main__":
-    run_bruteforce('../csv/data_3_actions.csv')
+    run_bruteforce('../csv/data_20_actions.csv')

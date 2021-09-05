@@ -64,8 +64,8 @@ def run_optimized(csv_file):
         for action in action_selection:
             print(f"{action[0]:<10} -- price : {action[1]:>6.2f} € -- profit : {action[2]:>6.2f} € ")
 
-        print(f"\nTotal invest = {max_invest:>6.2f} € \n"
-              f"Maximum profit in euros : {max_profit:>6.2f} euros\n\n")
+        print(f"\nTotal cost: {max_invest:>6.2f} € \n"
+              f"Total return: {max_profit:>6.2f} €\n\n")
 
         result_export(nom_file, action_selection, max_invest, max_profit)
 

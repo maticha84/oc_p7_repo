@@ -56,5 +56,5 @@ def result_export(choice, action_selection, total_invest, total_profit):
     with open(f'./results/{choice}.txt', 'xt') as result_file:
         result_file.write(f"\nBest choice to invest : \n\n"
                           f"{result_for_file}"
-                          f"\nTotal invest = {total_invest:>6.2f} € \n"
-                          f"Maximum profit in euros : {total_profit:>6.2f} euros\n\n")
+                          f"\nTotal cost: {total_invest:>6.2f} € \n"
+                          f"Total return: {total_profit:>6.2f} €\n\n")
