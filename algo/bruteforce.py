@@ -34,7 +34,6 @@ def bruteforce(list_actions, max_value=MAX_VALUE_INVEST, actions_selection=None)
                                                       )
             if profit_action1 < profit_action2:
                 return profit_action2, list_action2
-
         return profit_action1, list_action1
     else:
         return sum([i[2] for i in actions_selection]), actions_selection
@@ -63,4 +62,4 @@ def run_bruteforce(csv_file):
 
 
 if __name__ == "__main__":
-    run_bruteforce('../csv/data_20_actions.csv')
+    run_bruteforce('../csv/data_3_actions.csv')
