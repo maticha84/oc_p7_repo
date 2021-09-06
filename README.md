@@ -32,7 +32,7 @@ Now you can start the application by running the main.py file: __py main.py__
 ***
 
 You can find a flake8 report here : 
-[report](https://github.com/maticha84/oc_p7_project/tree/master/flake8_report)
+[report](https://github.com/maticha84/oc_p7_repo/tree/master/flake8_report)
 
 You can also do this command to make a new flake report, according the 
 specifications : 
