@@ -50,9 +50,13 @@ def dynamic_search(list_actions, max_value=MAX_VALUE_INVEST):
 
 
 def run_optimized(csv_file):
+    """
+    :param csv_file: csv file contains all actions to consider
+    :return: list of best actions, total cost and total return
+    """
     start_time = time()
 
-    match = re.search('/(\w+)\.csv', csv_file)
+    match = re.search('/(\\w+)\\.csv', csv_file)
     nom_file = f'optimized_{match.group(1)}'
 
     list_action, fin = retrieve_information(csv_file)

@@ -4,6 +4,7 @@
 from csv import DictReader
 from os import path, remove
 
+
 def retrieve_information(csv_import, bruteforce=False):
     """
     function to retrieve information related to the stock

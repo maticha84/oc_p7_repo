@@ -28,6 +28,17 @@ After that, no specific requirements are needed
 
 Now you can start the application by running the main.py file: __py main.py__
 
+## Flake8 report
+***
+
+You can find a flake8 report here : 
+[report](https://github.com/maticha84/oc_p7_project/tree/master/flake8_report)
+
+You can also do this command to make a new flake report, according the 
+specifications : 
+
+__flake8 --format html --htmldir flake8_rapport 
+--max-line-length 119 main.py controllers models views__
 
 ## Presentation of this application
 ***

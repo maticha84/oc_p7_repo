@@ -33,9 +33,7 @@ def bruteforce(list_actions, max_value=MAX_VALUE_INVEST, actions_selection=None)
                                                       actions_selection + [action]
                                                       )
             if profit_action1 < profit_action2:
-                print('en cours....2')
                 return profit_action2, list_action2
-        print('en cours....')
         return profit_action1, list_action1
 
     else:
@@ -43,13 +41,16 @@ def bruteforce(list_actions, max_value=MAX_VALUE_INVEST, actions_selection=None)
 
 
 def run_bruteforce(csv_file):
+    """
+    :param csv_file: csv file contains all action to consider
+    :return: list of best action, total cost and total return
+    """
     time1 = time()
-    print(time1)
     list_actions, fin = retrieve_information(csv_file)
     if not fin:
         result = bruteforce(list_actions)
         action_selection = result[1]
-        print(f"\nBest choice to invest : \n")
+        print("\nBest choice to invest : \n")
         for action in action_selection:
             print(f"{action[0]:<10} -- price : {action[1]:>6.2f} € "
                   f"-- profit : {action[2]:>6.2f} € ")

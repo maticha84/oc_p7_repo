@@ -27,9 +27,13 @@ def calc_best_return(list_action):
 
 
 def run_naive_optimized(csv_file):
+    """
+    :param csv_file: csv file contains all actions to consider
+    :return: list of best actions, total cost and total return
+    """
     start_time = time()
 
-    match = re.search('/(\w+)\.csv', csv_file)
+    match = re.search('/(\\w+)\\.csv', csv_file)
     nom_file = f'naive_optimized_{match.group(1)}'
 
     list_actions, fin = retrieve_information(csv_file)
