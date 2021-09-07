@@ -59,11 +59,11 @@ def run_bruteforce(csv_file):
         print(f"\nTotal cost: {total_invest:>6.2f} € \n"
               f"Total return: {result[0]:>6.2f} €\n")
 
-        result_export('bruteforce', action_selection, total_invest, result[0])
+        #weresult_export('bruteforce', action_selection, total_invest, result[0])
 
         final_time = time() - time1
         print(f"Execution time : {final_time} seconds\n")
 
 
 if __name__ == "__main__":
-    run_bruteforce('../csv/data_20_actions.csv')
+    run_bruteforce('../csv/dataset1-30.csv')
