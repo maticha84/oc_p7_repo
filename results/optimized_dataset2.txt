@@ -1,0 +1,20 @@
+
+Best choice to invest : 
+
+Share-GEBJ -- price :   5.87 € -- profit :   2.23 €
+Share-LFXB -- price :  14.83 € -- profit :   5.90 €
+Share-FWBE -- price :  18.31 € -- profit :   7.29 €
+Share-HATC -- price :  43.45 € -- profit :  14.83 €
+Share-FWMV -- price :  41.68 € -- profit :  14.92 €
+Share-OPBR -- price :  39.00 € -- profit :  15.19 €
+Share-MALJ -- price :  46.37 € -- profit :  15.25 €
+Share-ANFX -- price :  38.55 € -- profit :  15.31 €
+Share-IJFT -- price :  40.91 € -- profit :  15.91 €
+Share-DLNE -- price :  44.06 € -- profit :  16.19 €
+Share-QEVK -- price :  49.77 € -- profit :  17.11 €
+Share-MBQU -- price :  51.46 € -- profit :  18.41 €
+Share-JWGF -- price :  48.69 € -- profit :  19.44 €
+
+Total cost: 482.95 € 
+Total return: 194.90 €
+

@@ -1,0 +1,17 @@
+
+Best choice to invest : 
+
+action_20  -- price : 114.00 € -- profit :  20.52 €
+action_6   -- price :  80.00 € -- profit :  20.00 €
+action_4   -- price :  70.00 € -- profit :  14.00 €
+action_5   -- price :  60.00 € -- profit :  10.20 €
+action_10  -- price :  34.00 € -- profit :   9.18 €
+action_13  -- price :  38.00 € -- profit :   8.74 €
+action_11  -- price :  42.00 € -- profit :   7.14 €
+action_19  -- price :  24.00 € -- profit :   5.04 €
+action_8   -- price :  26.00 € -- profit :   2.86 €
+action_18  -- price :  10.00 € -- profit :   1.40 €
+
+Total cost: 498.00 € 
+Total return:  99.08 €
+

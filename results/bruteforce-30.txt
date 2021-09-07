@@ -1,0 +1,30 @@
+
+Best choice to invest : 
+
+Share-QUXB -- price :  36.97 € -- profit :  13.34 € 
+Share-PYDS -- price :  34.90 € -- profit :  10.71 € 
+Share-GTAN -- price :  26.04 € -- profit :   9.91 € 
+Share-PPPH -- price :  24.06 € -- profit :   9.19 € 
+Share-NOIQ -- price :  24.08 € -- profit :   8.86 € 
+Share-SOOE -- price :  23.09 € -- profit :   8.78 € 
+Share-XWRU -- price :  28.60 € -- profit :   6.68 € 
+Share-NNGR -- price :  43.15 € -- profit :   6.51 € 
+Share-LMJG -- price :  16.54 € -- profit :   4.93 € 
+Share-HKFP -- price :  23.97 € -- profit :   4.71 € 
+Share-EIYB -- price :  11.49 € -- profit :   4.34 € 
+Share-QLRX -- price :  15.72 € -- profit :   4.32 € 
+Share-SJNY -- price :  24.61 € -- profit :   4.29 € 
+Share-CFOZ -- price :  10.64 € -- profit :   4.07 € 
+Share-YNWM -- price :   9.94 € -- profit :   2.81 € 
+Share-IGUH -- price :  19.13 € -- profit :   2.74 € 
+Share-USUF -- price :   9.25 € -- profit :   2.56 € 
+Share-TVRM -- price :  31.06 € -- profit :   2.06 € 
+Share-CTCR -- price :  16.60 € -- profit :   2.06 € 
+Share-KTGN -- price :   6.41 € -- profit :   1.63 € 
+Share-HLJY -- price :  26.98 € -- profit :   1.49 € 
+Share-BVMS -- price :  27.84 € -- profit :   1.26 € 
+Share-DAPD -- price :   8.47 € -- profit :   0.56 € 
+
+Total cost: 500.00 € 
+Total return: 117.81 €
+
